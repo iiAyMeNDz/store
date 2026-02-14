@@ -1,43 +1,41 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-88">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>متجر بلس | دخول</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="dark-theme">
-    <div class="stars"></div>
     <div class="login-container">
-        <div class="login-card glass">
+        <div class="login-card">
             <div class="login-header">
-                <div class="logo">
-                    <i class="fas fa-store"></i>
-                </div>
+                <i class="fas fa-store"></i>
                 <h1>متجر بلس</h1>
-                <p>مرحباً بعودتك</p>
+                <p>تسجيل الدخول</p>
             </div>
             
-            <form id="loginForm" class="login-form">
+            <form id="loginForm">
                 <div class="input-group">
-                    <i class="fas fa-user input-icon"></i>
+                    <i class="fas fa-user"></i>
                     <input type="text" id="username" placeholder="اسم المستخدم" required>
                 </div>
                 
                 <div class="input-group">
-                    <i class="fas fa-lock input-icon"></i>
+                    <i class="fas fa-lock"></i>
                     <input type="password" id="password" placeholder="كلمة المرور" required>
                 </div>
                 
                 <button type="submit" class="login-btn">
-                    <span>دخول</span>
-                    <i class="fas fa-arrow-left"></i>
+                    دخول
                 </button>
             </form>
             
-            <div class="login-footer">
-                <p>للاختبار: admin | 123456</p>
+            <div class="demo-accounts">
+                <p>حسابات تجريبية:</p>
+                <small>admin / 123456</small>
+                <small>user / 123456</small>
             </div>
         </div>
     </div>
