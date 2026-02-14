@@ -7,34 +7,54 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="dark-theme">
-    <div class="login-container">
-        <div class="login-card">
-            <div class="login-header">
-                <i class="fas fa-store"></i>
-                <h1>متجر بلس</h1>
-                <p>تسجيل الدخول</p>
+<body>
+    <!-- خلفية متحركة -->
+    <div class="bg-gradient"></div>
+    <div class="noise"></div>
+    
+    <div class="auth-container">
+        <div class="auth-card">
+            <!-- الشعار -->
+            <div class="logo-wrapper">
+                <div class="logo-icon">
+                    <i class="fas fa-store"></i>
+                </div>
+                <h1 class="logo-text">متجر بلس</h1>
+                <p class="logo-sub">نظام إدارة متكامل</p>
             </div>
             
-            <form id="loginForm">
+            <!-- نموذج الدخول -->
+            <form id="loginForm" class="auth-form">
                 <div class="input-group">
-                    <i class="fas fa-user"></i>
+                    <i class="fas fa-user input-icon"></i>
                     <input type="text" id="username" placeholder="اسم المستخدم" required>
                 </div>
                 
                 <div class="input-group">
-                    <i class="fas fa-lock"></i>
+                    <i class="fas fa-lock input-icon"></i>
                     <input type="password" id="password" placeholder="كلمة المرور" required>
                 </div>
                 
-                <button type="submit" class="login-btn">
-                    دخول
+                <button type="submit" class="auth-btn">
+                    <span>دخول</span>
+                    <i class="fas fa-arrow-left"></i>
                 </button>
             </form>
             
-            <div class="demo-accounts">
+            <!-- حسابات تجريبية -->
+            <div class="auth-footer">
                 <p>حسابات تجريبية:</p>
-                <small>admin / 123456</small>
+                <div class="demo-accounts">
+                    <span>admin / 123456</span>
+                    <span>user / 123456</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+</body>
+</html>                <small>admin / 123456</small>
                 <small>user / 123456</small>
             </div>
         </div>
