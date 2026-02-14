@@ -3,67 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر بلس | لوحة المنتجات</title>
+    <title>متجر بلس | الرئيسية</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="dark-theme">
-    <div class="stars"></div>
-    
     <!-- الشريط العلوي -->
-    <nav class="top-nav glass">
-        <div class="nav-brand">
+    <div class="top-bar">
+        <div class="logo">
             <i class="fas fa-store"></i>
             <span>متجر بلس</span>
         </div>
         
-        <div class="nav-user">
-            <div class="user-info" id="userInfo">
-                <span class="user-name" id="displayName"></span>
-                <span class="user-badge"><i class="fas fa-circle"></i> متصل</span>
-            </div>
-            <button onclick="logout()" class="logout-icon">
+        <div class="user-menu">
+            <span id="userDisplayName"></span>
+            <button onclick="logout()" class="logout-btn">
                 <i class="fas fa-sign-out-alt"></i>
             </button>
         </div>
-    </nav>
-    
+    </div>
+
     <!-- المحتوى الرئيسي -->
-    <main class="dashboard">
-        <!-- قسم الإحصائيات السريعة -->
-        <div class="stats-grid">
-            <div class="stat-card glass">
-                <i class="fas fa-boxes stat-icon"></i>
-                <div class="stat-info">
-                    <span class="stat-label">إجمالي المنتجات</span>
-                    <span class="stat-value" id="totalProducts">0</span>
+    <div class="main-container">
+        
+        <!-- ===== قسم المنتجات ===== -->
+        <div class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-box"></i> المنتجات</h2>
+            </div>
+            
+            <!-- نموذج إضافة منتج -->
+            <div class="add-form">
+                <div class="form-row">
+                    <input type="text" id="productName" placeholder="اسم المنتج">
+                    <input type="number" id="productPrice" placeholder="السعر">
+                    <input type="number" id="productQuantity" placeholder="الكمية" value="1">
+                </div>
+                <div class="form-row">
+                    <input type="file" id="productImage" accept="image/*" class="file-input">
+                    <button onclick="addProduct()" class="btn-add">
+                        <i class="fas fa-plus"></i> أضف منتج
+                    </button>
                 </div>
             </div>
             
-            <div class="stat-card glass">
-                <i class="fas fa-chart-line stat-icon"></i>
-                <div class="stat-info">
-                    <span class="stat-label">قيمة المخزون</span>
-                    <span class="stat-value" id="totalValue">0</span>
-                </div>
-            </div>
-            
-            <div class="stat-card glass">
-                <i class="fas fa-exclamation-triangle stat-icon"></i>
-                <div class="stat-info">
-                    <span class="stat-label">منتجات منخفضة</span>
-                    <span class="stat-value" id="lowStock">0</span>
-                </div>
+            <!-- قائمة المنتجات -->
+            <div class="products-list" id="productsList">
+                <!-- المنتجات تظهر هنا -->
             </div>
         </div>
         
-        <!-- نموذج إضافة منتج -->
-        <div class="add-product-section glass">
-            <h3><i class="fas fa-plus-circle"></i> أضف منتج جديد</h3>
+        <!-- ===== قسم الديون / القروض ===== -->
+        <div class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-hand-holding-heart"></i> الديون والقروض</h2>
+            </div>
             
-            <form id="productForm" class="product-form">
+            <!-- نموذج إضافة دين -->
+            <div class="add-form">
                 <div class="form-row">
-                    <div class="form-group">
+                    <input type="text" id="debtName" placeholder="اسم الشخص">
+                    <input type="number" id="debtAmount" placeholder="المبلغ">
+                </div>
+                <div class="form-row">
+                    <textarea id="debtNote" placeholder="ملاحظات (اختياري)" rows="2"></textarea>
+                    <button onclick="addDebt()" class="btn-add debt-btn">
+                        <i class="fas fa-plus"></i> أضف دين
+                    </button>
+                </div>
+            </div>
+            
+            <!-- قائمة الديون -->
+            <div class="debts-list" id="debtsList">
+                <!-- الديون تظهر هنا -->
+            </div>
+            
+            <!-- إجمالي الديون -->
+            <div class="total-debts">
+                <span>إجمالي الديون:</span>
+                <span id="totalDebts">0 ريال</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- زر العودة للأعلى -->
+    <button id="scrollTop" class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <script src="js/auth.js"></script>
+    <script src="js/data.js"></script>
+</body>
+</html>                    <div class="form-group">
                         <label>اسم المنتج</label>
                         <div class="input-group">
                             <i class="fas fa-tag"></i>
