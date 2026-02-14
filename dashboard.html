@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر بلس | لوحة المنتجات</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dark-theme">
+    <div class="stars"></div>
+    
+    <!-- الشريط العلوي -->
+    <nav class="top-nav glass">
+        <div class="nav-brand">
+            <i class="fas fa-store"></i>
+            <span>متجر بلس</span>
+        </div>
+        
+        <div class="nav-user">
+            <div class="user-info" id="userInfo">
+                <span class="user-name" id="displayName"></span>
+                <span class="user-badge"><i class="fas fa-circle"></i> متصل</span>
+            </div>
+            <button onclick="logout()" class="logout-icon">
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- المحتوى الرئيسي -->
+    <main class="dashboard">
+        <!-- قسم الإحصائيات السريعة -->
+        <div class="stats-grid">
+            <div class="stat-card glass">
+                <i class="fas fa-boxes stat-icon"></i>
+                <div class="stat-info">
+                    <span class="stat-label">إجمالي المنتجات</span>
+                    <span class="stat-value" id="totalProducts">0</span>
+                </div>
+            </div>
+            
+            <div class="stat-card glass">
+                <i class="fas fa-chart-line stat-icon"></i>
+                <div class="stat-info">
+                    <span class="stat-label">قيمة المخزون</span>
+                    <span class="stat-value" id="totalValue">0</span>
+                </div>
+            </div>
+            
+            <div class="stat-card glass">
+                <i class="fas fa-exclamation-triangle stat-icon"></i>
+                <div class="stat-info">
+                    <span class="stat-label">منتجات منخفضة</span>
+                    <span class="stat-value" id="lowStock">0</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- نموذج إضافة منتج -->
+        <div class="add-product-section glass">
+            <h3><i class="fas fa-plus-circle"></i> أضف منتج جديد</h3>
+            
+            <form id="productForm" class="product-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>اسم المنتج</label>
+                        <div class="input-group">
+                            <i class="fas fa-tag"></i>
+                            <input type="text" id="productName" placeholder="مثل: قميص, بنطلون..." required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>السعر (ريال)</label>
+                        <div class="input-group">
+                            <i class="fas fa-money-bill"></i>
+                            <input type="number" id="productPrice" placeholder="0.00" step="0.01" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>الكمية</label>
+                        <div class="input-group">
+                            <i class="fas fa-cubes"></i>
+                            <input type="number" id="productQuantity" placeholder="عدد القطع" value="1" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>صورة المنتج</label>
+                        <div class="input-group">
+                            <i class="fas fa-image"></i>
+                            <input type="url" id="productImage" placeholder="رابط الصورة (اختياري)">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-save"></i>
+                        <span>حفظ المنتج</span>
+                    </button>
+                    <button type="reset" class="btn-secondary">
+                        <i class="fas fa-undo"></i>
+                        <span>إعادة ضبط</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+        <!-- قائمة المنتجات -->
+        <div class="products-section glass">
+            <h3><i class="fas fa-store-alt"></i> المنتجات المتوفرة</h3>
+            
+            <div class="products-grid" id="productsGrid">
+                <!-- المنتجات ستظهر هنا عبر JavaScript -->
+            </div>
+        </div>
+    </main>
+    
+    <!-- زر العودة للأعلى -->
+    <button id="scrollTop" class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <script src="js/auth.js"></script>
+    <script src="js/products.js"></script>
+</body>
+</html>
